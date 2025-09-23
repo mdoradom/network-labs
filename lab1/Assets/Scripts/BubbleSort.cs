@@ -17,6 +17,8 @@ public class BubbleSort : MonoBehaviour
         {
             array[i] = (float)Random.Range(0, 1000)/100;
         }
+        
+        logArray();
        
         //TO DO 4
         //Call the three previous functions in order to set up the exercise
@@ -67,7 +69,11 @@ public class BubbleSort : MonoBehaviour
 
         //TO DO 1
         //Simply show in the console what's inside our array.
-
+        Debug.Log("Array: ");
+        for (int i = 0; i < array.Length; i++)
+        {
+            text += array[i] + ", ";
+        }
         Debug.Log(text);
     }
     
