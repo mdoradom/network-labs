@@ -9,6 +9,9 @@ public class BubbleSort : MonoBehaviour
     List<GameObject> mainObjects;
     public GameObject prefab;
 
+    public enum SortType { Bubble, Insertion }
+    public SortType sortType = SortType.Bubble;
+
     void Start()
     {
         mainObjects = new List<GameObject>();
@@ -19,19 +22,16 @@ public class BubbleSort : MonoBehaviour
         }
         
         logArray();
-       
-        //TO DO 4
-        //Call the three previous functions in order to set up the exercise
         spawnObjs();
         updateHeights();
 
-        //TO DO 5
-        //Create a new thread using the function "bubbleSort" and start it.
-      
-        Thread sortingThread = new Thread(bubbleSort);
+        // Start the selected sort in a new thread
+        Thread sortingThread;
+        if (sortType == SortType.Bubble)
+            sortingThread = new Thread(bubbleSort);
+        else
+            sortingThread = new Thread(insertionSort);
         sortingThread.Start();
-
-
     }
 
     void Update()
@@ -66,6 +66,23 @@ public class BubbleSort : MonoBehaviour
                 break;
         }
         //You may debug log your Array here in case you want to. It will only be called one the bubble algorithm has finished sorting the array
+    }
+
+    void insertionSort()
+    {
+        int n = array.Length;
+        for (int i = 1; i < n; ++i)
+        {
+            float key = array[i];
+            int j = i - 1;
+
+            while (j >= 0 && array[j] > key)
+            {
+                array[j + 1] = array[j];
+                j = j - 1;
+            }
+            array[j + 1] = key;
+        }
     }
 
     void logArray()
