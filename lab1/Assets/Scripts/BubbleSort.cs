@@ -22,10 +22,15 @@ public class BubbleSort : MonoBehaviour
        
         //TO DO 4
         //Call the three previous functions in order to set up the exercise
+        spawnObjs();
+        updateHeights();
 
         //TO DO 5
         //Create a new thread using the function "bubbleSort" and start it.
       
+        Thread sortingThread = new Thread(bubbleSort);
+        sortingThread.Start();
+
 
     }
 
@@ -35,7 +40,7 @@ public class BubbleSort : MonoBehaviour
         //Call ChangeHeights() in order to update our object list.
         //Since we'll be calling UnityEngine functions to retrieve and change some data,
         //we can't call this function inside a Thread
-  
+        updateHeights();
 
     }
 
@@ -82,13 +87,14 @@ public class BubbleSort : MonoBehaviour
         //TO DO 2
         //We should be storing our objects in a list so we can access them later on.
 
+        mainObjects.Clear();
         for (int i = 0; i < array.Length; i++)
         {
             //We have to separate the objs accordingly to their width, in which case we divide their position by 1000.
             //If you decide to make your objs wider, don't forget to up this value
-
-            Instantiate(prefab, new Vector3((float)i / 1000, 
+            GameObject obj = Instantiate(prefab, new Vector3((float)i / 1000, 
                 this.gameObject.GetComponent<Transform>().position.y, 0), Quaternion.identity);
+            mainObjects.Add(obj);
         }
 
     }
@@ -104,7 +110,21 @@ public class BubbleSort : MonoBehaviour
         bool changed = false;
         for (int i = 0; i < array.Length; i++)
         {
- 
+            if (i < mainObjects.Count)
+            {
+                // Get current scale
+                Vector3 currentScale = mainObjects[i].transform.localScale;
+                
+                // Create new scale with height based on array value
+                Vector3 newScale = new Vector3(currentScale.x, array[i], currentScale.z);
+                
+                // Check if scale needs to be updated
+                if (currentScale.y != newScale.y)
+                {
+                    mainObjects[i].transform.localScale = newScale;
+                    changed = true;
+                }
+            }
         }
         return changed;
     }
