@@ -72,3 +72,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 lab1/.vsconfig
 /lab1/.vscode
+/lab2/.vscode
