@@ -67,7 +67,6 @@ public class TCPServer : MonoBehaviour
         {
             try
             {
-                serverSocket.Shutdown(SocketShutdown.Both);
                 serverSocket.Close();
                 isServerRunning = false;
                 Debug.Log("TCP Server stopped successfully");
