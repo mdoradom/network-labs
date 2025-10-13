@@ -4219,6 +4219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2143034379}
   - component: {fileID: 2143034380}
+  - component: {fileID: 2143034381}
   m_Layer: 0
   m_Name: ClientManager
   m_TagString: Untagged
@@ -4248,9 +4249,33 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143034377}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32bcc26f25edcc9f097fa76f83238882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serverIP: 127.0.0.1
+  serverPort: 9050
+  username: Player
+  serverIPField: {fileID: 1053935890}
+  usernameField: {fileID: 197691084}
+  statusText: {fileID: 988635063}
+  roomInfoText: {fileID: 1289334052}
+  chatInputField: {fileID: 1235844585}
+  chatDisplayText: {fileID: 879043102}
+  connectButton: {fileID: 1841947593}
+  disconnectButton: {fileID: 1524290079}
+  sendMessageButton: {fileID: 1308071446}
+--- !u!114 &2143034381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143034377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be8f3397f8b04d630991da807db1108c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serverIP: 127.0.0.1

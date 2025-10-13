@@ -2179,6 +2179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1353780257}
   - component: {fileID: 1353780258}
+  - component: {fileID: 1353780259}
   m_Layer: 0
   m_Name: ServerManager
   m_TagString: Untagged
@@ -2208,7 +2209,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353780256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f1604fdf9f9ef004b44a53a14099e00, type: 3}
   m_Name: 
@@ -2216,6 +2217,27 @@ MonoBehaviour:
   port: 9050
   maxConnections: 10
   roomName: Unity Game Room
+  statusText: {fileID: 799418086}
+  connectedClientsText: {fileID: 1892009936}
+  chatInputField: {fileID: 1080238873}
+  chatDisplayText: {fileID: 660882421}
+  sendMessageButton: {fileID: 1679397560}
+  startServerButton: {fileID: 20459480}
+  stopServerButton: {fileID: 567777615}
+--- !u!114 &1353780259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353780256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9718b45786702a0bca4e28ef6e133f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  port: 9050
+  roomName: Unity UDP Game Room
   statusText: {fileID: 799418086}
   connectedClientsText: {fileID: 1892009936}
   chatInputField: {fileID: 1080238873}
