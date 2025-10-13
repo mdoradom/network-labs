@@ -251,7 +251,7 @@ public class TCPClient : MonoBehaviour
     {
         if (chatDisplayText != null && chatDisplayText.content != null)
         {
-            var chatText = chatDisplayText.content.GetComponentInChildren<TextMeshProUGUI>();
+            var chatText = chatDisplayText.content.GetComponent<TextMeshProUGUI>();
             if (chatText != null)
             {
                 chatText.text = string.Join("\n", chatMessages);
